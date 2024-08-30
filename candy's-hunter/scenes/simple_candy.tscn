@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh3t5qj0xmq1t"]
+
+[ext_resource type="Script" path="res://scripts/candy.gd" id="1_s3hbi"]
+[ext_resource type="Texture2D" uid="uid://etdlrqcd6qyk" path="res://src/assets/icon.svg" id="2_oks3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6qw7"]
+size = Vector2(64, 64)
+
+[node name="Simple Candy" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_s3hbi")
+sprite = NodePath("Sprite2D")
+quantity_of_points = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oks3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v6qw7")

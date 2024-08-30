@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4kktv2j3jura"]
+
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_7c5j4"]
+[ext_resource type="PackedScene" uid="uid://b1wmpl87saqy7" path="res://scenes/player.tscn" id="1_i23xu"]
+[ext_resource type="Script" path="res://scripts/points.gd" id="3_frgbq"]
+[ext_resource type="Script" path="res://scripts/life.gd" id="4_0pkom"]
+
+[node name="Game Screen" type="Node2D"]
+script = ExtResource("1_7c5j4")
+
+[node name="Player" parent="." instance=ExtResource("1_i23xu")]
+position = Vector2(588, 546)
+
+[node name="Points" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Pontos: 0"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("3_frgbq")
+
+[node name="Life" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Vida: 0"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("4_0pkom")
