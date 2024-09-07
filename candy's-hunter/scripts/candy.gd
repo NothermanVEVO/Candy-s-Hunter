@@ -9,6 +9,7 @@ var rect : Rect2
 
 func _ready() -> void:
 	rect = sprite.get_rect()
+	rect.size *= sprite.scale
 
 func _physics_process(delta: float) -> void:
 	global_position.y += gravity * delta

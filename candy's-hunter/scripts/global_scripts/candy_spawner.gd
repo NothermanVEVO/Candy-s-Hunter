@@ -7,8 +7,11 @@ var _rng := RandomNumberGenerator.new()
 
 signal changed_to_game_scene(state : bool)
 
-@onready var _simple_candy_scene := preload("res://scenes/simple_candy.tscn")
-enum types_of_candies {SIMPLE_CANDY}
+@onready var _blue_candy_scene := preload("res://scenes/candies/blue_candy.tscn")
+@onready var _green_candy_scene := preload("res://scenes/candies/green_candy.tscn")
+@onready var _orange_candy_scene := preload("res://scenes/candies/orange_candy.tscn")
+@onready var _purple_candy_scene := preload("res://scenes/candies/purple_candy.tscn")
+enum types_of_candies {BLUE_CANDY, GREEN_CANDY, ORANGE_CANDY, PURPLE_CANDY}
 
 func _ready() -> void:
 	add_child(_timer)
@@ -25,8 +28,14 @@ func _changed_to_game_scene(state : bool) -> void:
 func _spawn(id : int) -> void:
 	var candy : Candy
 	match id:
-		types_of_candies.SIMPLE_CANDY:
-			candy = _simple_candy_scene.instantiate()
+		types_of_candies.BLUE_CANDY:
+			candy = _blue_candy_scene.instantiate()
+		types_of_candies.GREEN_CANDY:
+			candy = _green_candy_scene.instantiate()
+		types_of_candies.ORANGE_CANDY:
+			candy = _orange_candy_scene.instantiate()
+		types_of_candies.PURPLE_CANDY:
+			candy = _purple_candy_scene.instantiate()
 	
 	get_node("/root/Game Screen/").add_child(candy)
 	

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4kktv2j3jura"]
+
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_db854"]
+[ext_resource type="PackedScene" uid="uid://b1wmpl87saqy7" path="res://scenes/player.tscn" id="2_pood4"]
+[ext_resource type="Script" path="res://scripts/points.gd" id="3_a7h6t"]
+[ext_resource type="Script" path="res://scripts/life.gd" id="4_m3s5t"]
+[ext_resource type="Texture2D" uid="uid://cabc6gnd7glw7" path="res://src/assets/halloween_background.jpg" id="5_toem3"]
+
+[node name="Game Screen" type="Node2D"]
+script = ExtResource("1_db854")
+
+[node name="Halloween Background" type="NinePatchRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("5_toem3")
+
+[node name="HalloweenBackground" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+scale = Vector2(0.197974, 0.210478)
+texture = ExtResource("5_toem3")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_pood4")]
+position = Vector2(588, 546)
+
+[node name="Points" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Pontos: 0"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("3_a7h6t")
+
+[node name="Life" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Vida: 0"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("4_m3s5t")

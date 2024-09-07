@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://c51t1obgdyb56"]
+
+[ext_resource type="Script" path="res://scripts/pause_screen.gd" id="1_ht48h"]
+
+[node name="Pause Screen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ht48h")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[node name="Pause" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.0
+offset_top = 51.345
+offset_right = 159.0
+offset_bottom = 202.345
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 110
+bbcode_enabled = true
+text = "Pausado"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Resume" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -74.0
+offset_right = 100.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Retomar"
+
+[node name="Leave" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 76.0
+offset_right = 100.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Sair"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]

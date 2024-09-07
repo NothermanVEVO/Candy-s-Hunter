@@ -14,6 +14,7 @@ func _ready() -> void:
 	Global.points = 0
 	
 	rect = sprite.get_rect()
+	rect.size *= sprite.scale
 	global_position.y = get_viewport_rect().position.y + get_viewport_rect().size.y - distance_from_bottom_border
 	get_tree().root.size_changed.connect(_window_resized)
 
@@ -25,6 +26,9 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_packed(Global.game_over_scene)
 	
 	# STOP AT LEFT BORDER
+	if get_viewport() == null:
+		return
+		
 	if get_global_mouse_position().x - (rect.size.x / 2) <= get_viewport_rect().position.x:
 		global_position.x = get_viewport_rect().position.x + (rect.size.x / 2)
 		return

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cym3fij2356gj"]
+
+[ext_resource type="Script" path="res://scripts/candy.gd" id="1_ts5cu"]
+[ext_resource type="Texture2D" uid="uid://prpol2kkue2h" path="res://src/assets/green_candy.png" id="2_hla6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6qw7"]
+size = Vector2(64, 64)
+
+[node name="Green Candy" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_ts5cu")
+sprite = NodePath("Sprite2D")
+quantity_of_points = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_hla6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v6qw7")

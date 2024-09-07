@@ -3,6 +3,8 @@ extends Control
 func _ready() -> void:
 	$Points.text = "Pontuação: " + str(Global.points)
 	if Global.points > Global.points_record:
+		Global.points_record = Global.points
+		Global.save_game()
 		$Record.text = "Novo recorde: " + str(Global.points)
 	else:
 		$Record.text = "Recorde: " + str(Global.points_record)

@@ -10,10 +10,14 @@ func _ready():
 	fit_content = true
 	finished.connect(_fit_width, CONNECT_DEFERRED)
 	global_position.x = get_viewport_rect().position.x + get_viewport_rect().size.x - size.x
+	get_tree().root.size_changed.connect(_changed_size)
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	text = "Pontos: " + str(Global.points)
+
+func _changed_size():
+	global_position.x = get_viewport_rect().size.x - size.x
 
 func _fit_width() -> void:
 	# block the signals so "finished" does not trigger this function again
