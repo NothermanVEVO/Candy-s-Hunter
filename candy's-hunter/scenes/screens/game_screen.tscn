@@ -14,13 +14,6 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("5_toem3")
 
-[node name="HalloweenBackground" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -12)
-scale = Vector2(0.197974, 0.210478)
-texture = ExtResource("5_toem3")
-centered = false
-
 [node name="Player" parent="." instance=ExtResource("2_pood4")]
 position = Vector2(588, 546)
 
